@@ -1,3 +1,4 @@
+/*
 //LECTURE: Variables
 
 let country = 'Hungary';
@@ -49,3 +50,52 @@ if (population > 33) {
 } else {
     console.log(`${country}'s population is ${populationAvg - population} million below average`);
 }
+
+
+const numNeighbours = Number(prompt("How many neighbour countries does your country have?"));
+
+if (numNeighbours === 1) {
+    console.log("Only 1 border!");
+} else if (numNeighbours > 1) {
+    console.log("More than 1 border");
+} else {
+    console.log("No borders");
+}
+
+
+const language = "chinese";
+
+switch (language) {
+    case "chinese":
+        console.log("MOST number of native speakers");
+        break;
+    case "spanish":
+        console.log("2nd place of native speakers");
+        break;
+
+    case "english":
+        console.log("3rd place");
+        break;
+
+    case "hindi":
+        console.log("Number 4");
+        break;
+
+    case "arabic":
+        console.log("Number 5");
+        break;
+
+    default:
+        console.log("Great language too");
+        break;
+}
+
+
+
+//Ternary operator
+
+const population = 10;
+
+console.log(`Hungary's population is ${population > 33 ? "above" : "below"} average`);
+
+*/
