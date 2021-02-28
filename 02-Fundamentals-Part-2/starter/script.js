@@ -143,24 +143,28 @@ Hints:
 Apply this to the team's average scores �
 GOOD LUCK �
 
-*/
 
-const calcAvg = (score1, score2, score3) => {
-    return (score1 + score2 + score3) / 3;
-}
 
+const calcAvg = (a, b, c) => (a + b + c) / 3
+
+//Test 1
 const avgDolphins = calcAvg(44, 23, 71);
 const avgKoalas = calcAvg(65, 54, 49);
-
 console.log(avgDolphins, avgKoalas);
 
-function checkWinner(avgDolphins, avgKoalas) {
-    if (avgDolphins >= (avgKoalas * 2)) {
-        console.log(`Dolphins wins (${avgDolphins} vs. ${avgKoalas})`)
-    } else if ((avgDolphins * 2) <= avgKoalas) {
-        console.log(`Koalas wins (${avgKoalas} vs. ${avgDolphins})`)
+
+const checkWinner = function(avgDolphins, avgKoalas) {
+
+    if (avgDolphins >= 2 * avgKoalas) {
+       console.log(`Dolphins wins (${avgDolphins} vs. ${avgKoalas})`);
+    } else if (avgKoalas >= 2 * avgDolphins) {
+       console.log(`Koalas wins (${avgKoalas} vs. ${avgDolphins})`);
+    }else {
+        console.log("No team wins");
     }
 }
 
 checkWinner(avgDolphins, avgKoalas);
-console.log(checkWinner);
+checkWinner(100, 200);
+
+*/
