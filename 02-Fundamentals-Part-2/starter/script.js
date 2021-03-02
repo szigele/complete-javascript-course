@@ -167,4 +167,258 @@ const checkWinner = function(avgDolphins, avgKoalas) {
 checkWinner(avgDolphins, avgKoalas);
 checkWinner(100, 200);
 
+
+
+const friend1 = "michael";
+const friend2 = "steven";
+const friend3 = "peter";
+
+const friends = ["michael", "steven", "peter"];
+console.log(friends);
+
+const years = new Array(1991, 1984, 2008, 2020);
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = "jay";
+console.log(friends[2]);
+
+const firstName = "jonas";
+const jonas = [firstName, "schmedtmann", 2037 - 1991, friends];
+
+console.log(jonas);
+console.log(jonas.length);
+
+
+//Exercise
+
+const calcAge = function(birthYear) {
+    return 2037 - birthYear;
+}
+
+const year = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(year[0]);
+const age2 = calcAge(year[1]);
+const age3 = calcAge(year[year.length - 1]);
+
+console.log(age1, age2, age3);
+
+const ages = [calcAge(year[0]), calcAge(year[1]), calcAge(year[year.length - 1])];
+console.log(ages);
+
+
+
+const friends = ["michael", "steven", "peter"];
+//Add elements, returns the new length
+const newLength = friends.push("Jay");
+console.log(friends);
+console.log(newLength);
+
+friends.unshift("John");
+console.log(friends);
+
+//Remove elements
+
+friends.pop(); // Last, returns the removed element
+console.log(friends);
+
+friends.shift(); //First, returns the removed element
+console.log(friends);
+
+console.log(friends.indexOf("steven")); // returns the pos of the element
+console.log(friends.indexOf("bob")); // -1
+
+console.log(friends.includes("steven")); // true or false, is in the array?
+console.log(friends.includes("bob"));
+
+if (friends.includes("steven")) {
+    console.log("you have a friend called steven");
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+Coding Challenge #2
+Steven is still building his tip calculator, using the same rules as before: Tip 15% of
+the bill if the bill value is between 50 and 300, and if the value is different, the tip is
+20%.
+Your tasks:
+1. Write a function 'calcTip' that takes any bill value as an input and returns
+the corresponding tip, calculated based on the rules above (you can check out
+the code from first tip calculator challenge if you need to). Use the function
+type you like the most. Test the function using a bill value of 100
+2. And now let's use arrays! So create an array 'bills' containing the test data
+below
+3. Create an array 'tips' containing the tip value for each bill, calculated from
+the function you created before
+4. Bonus: Create an array 'total' containing the total values, so the bill + tip
+Test data: 125, 555 and 44
+Hint: Remember that an array needs a value in each position, and that value can
+actually be the returned value of a function! So you can just call a function as array
+values (so don't store the tip values in separate variables first, but right in the new
+array) �
+GOOD LUCK �
+
+
+
+const calcTip = function(value) {
+    if (50 <= value && value <= 300) {
+        return value * 0.15;
+    } else {
+        return value * 0.2;
+    }
+}
+
+
+const bill1 = calcTip(100);
+console.log(bill1);
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+console.log(tips);
+
+const total = [(calcTip(bills[0]) + bills[0]), (calcTip(bills[1]) + bills[1]), (calcTip(bills[2]) + bills[2])];
+
+console.log(total);
+
+
+
+// OBJECTS
+
+const jonas = {
+    firstName: "jonas",
+    lastName: "schmedtmann",
+    age: 2037 - 1991,
+    job: "teacher",
+    friends: ["michael", "peter", "steven"]
+};
+
+console.log(jonas);
+//Dot notation
+console.log(jonas.lastName);
+
+//bracket notation
+const nameKey = "Name";
+console.log(jonas["lastName"]);
+console.log(jonas["first" + nameKey]);
+console.log(jonas["last" + nameKey]);
+
+const interestedIN = prompt("What do you want to know about Jonas? Choose between firstName, lastName, age, job and friends");
+
+if (jonas[interestedIN]) {
+    console.log(jonas[interestedIN]);
+} else { // undefined -> falsy 
+    console.log("Wrong request! Choose between firstName, lastName, age, job and friends");
+}
+//Add properties
+jonas.location = "Portugal";
+jonas["twitter"] = "@jonasschmedtman";
+console.log(jonas);
+
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
+
+
+
+//Object methods
+
+const jonas = {
+    firstName: "jonas",
+    lastName: "schmedtmann",
+    birthYear: 1991,
+    job: "teacher",
+    friends: ["michael", "peter", "steven"],
+    hasDriversLicense: true,
+
+    // calcAge: function(birthYear) { // object method!!!
+    //     return 2037 - birthYear;
+    // }
+
+    // calcAge: function() { // object method!!!
+    // console.log(this);
+    //    return 2037 - this.birthYear;
+    //}
+
+    calcAge: function() {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function() {
+        return `${this.firstName} is a ${this.calcAge()} - year old ${this.job}, and he has ${this.hasDriversLicense ? "a" : "no"} drivers license `;
+    }
+};
+
+console.log(jonas.calcAge()); //dot notation
+console.log(jonas["calcAge"](1991)); // bracket notation
+
+console.log(jonas.age);
+console.log(jonas.age);
+console.log(jonas.age);
+
+console.log(jonas.getSummary());
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+Coding Challenge #3
+
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to
+
+implement the calculations! Remember: BMI = mass / height ** 2 = mass /
+    (height * height)(mass in kg and height in meter)
+Your tasks:
+    1. For each of them, create an object with properties
+for their full name, mass, and
+height(Mark Miller and John Smith)
+2. Create a 'calcBMI'
+method on each object to calculate the BMI(the same method on both objects).Store the BMI value to a property, and also
+return it
+from the method
+3. Log to the console who has the higher BMI, together with the full name and the
+respective BMI.Example: "John's BMI (28.3) is higher than Mark's (23.9)!"
+Test data: Marks weights 78 kg and is 1.69 m tall.John weights 92 kg and is 1.95 m
+tall.
+GOOD LUCK�
+
+
+const mark = {
+    fullName: "Mark miller",
+    mass: 78,
+    height: 1.69,
+
+    calcBMI: function() {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+};
+
+const john = {
+    fullName: "John Smith",
+    mass: 92,
+    height: 1.95,
+
+    calcBMI: function() {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+
+};
+
+mark.calcBMI();
+john.calcBMI();
+
+
+if (mark.bmi > john.bmi) {
+    console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s ${john.bmi}`);
+} else {
+    console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`);
+}
+
 */
