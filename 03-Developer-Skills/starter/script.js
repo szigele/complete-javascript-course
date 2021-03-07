@@ -135,9 +135,15 @@ TEST DATA 1: [17, 21, 23]
 TEST DATA 2: [12, 5, -5, 0, 4]
 */
 const array1 = [17, 21, 23];
+const array2 = [12, 5, -5, 0 - 4];
 
 const printForecast = function(arr) {
+    let str = "";
     for (let i = 0; i < arr.length; i++) {
-        let testArr = [];
+        str += `${arr[i]} C in ${i + 1} days ... `;
     }
+    console.log("..." + str);
 };
+
+printForecast(array1);
+printForecast(array2);
